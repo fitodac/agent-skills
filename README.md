@@ -22,13 +22,13 @@ Portable personal skills should live under `~/.agents/skills/` when supported by
 Clone this repository, then run:
 
 ```bash
-./scripts/install-global.sh
+bash scripts/install-global.sh
 ```
 
 ## Update external skills
 
 ```bash
-./scripts/update-global.sh
+bash scripts/update-global.sh
 ```
 
 The update script deliberately re-installs each tracked external skill from its canonical source rather than relying on a generic bulk updater. This keeps each skill tied to the intended upstream repository and skill name.
