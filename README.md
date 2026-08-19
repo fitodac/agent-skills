@@ -59,7 +59,7 @@ The curated MengTo skills for this workflow are:
 
 - `video-to-superprompt` — produces detailed builder-ready prompts from motion/video references.
 - `design-first-ui-prompting` — structures UI prompts as explicit design specifications instead of vague aesthetic instructions.
-- `tailwindcss` — guides practical Tailwind implementation and helps translate inferred layout intent into conventional utilities.
+- `tailwindcss` — guides practical Tailwind implementation.
 - `html-to-interaction-prompts` — extracts reusable interaction and motion specifications when HTML or a live implementation is available.
 - `stitched-full-page-capture` — creates reliable full-page visual evidence from lazy-loaded or scroll-animated sites.
 
@@ -80,8 +80,6 @@ HTML / React / Astro implementation
       ↓
 visual QA and refinement
 ```
-
-When interpreting screenshots, prefer the likely underlying design system and semantic layout model over literal screenshot measurements. For example, four visually equal columns should normally become an equal four-column grid instead of arbitrary fractional widths copied from pixels.
 
 `video-to-superprompt` is currently the closest upstream skill to the desired output. A dedicated static `image-to-superprompt` skill may be added here later after this workflow is tested in real projects.
 
