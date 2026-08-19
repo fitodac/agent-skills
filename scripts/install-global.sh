@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PORTABLE_SKILLS_DIR="${HOME}/.agents/skills"
-
-mkdir -p "${PORTABLE_SKILLS_DIR}"
-
-sync_local_skill() {
-  local name="$1"
-  echo "[local] ${name}"
-  mkdir -p "${PORTABLE_SKILLS_DIR}/${name}"
-  rsync -a --delete "${ROOT_DIR}/skills/${name}/" "${PORTABLE_SKILLS_DIR}/${name}/"
-}
-
 install_external_skill() {
   local source="$1"
   local name="${2:-}"
@@ -26,9 +14,9 @@ install_external_skill() {
   fi
 }
 
-# Skills maintained in this repository.
-sync_local_skill "admin-interface-design"
-sync_local_skill "fitodac-shadcn-integration"
+# Fitodac-maintained skills.
+install_external_skill "https://github.com/next-multipurpose/fitodac-shadcn/tree/main/.agents/skills/admin-interface-design"
+install_external_skill "https://github.com/next-multipurpose/fitodac-shadcn/tree/main/.agents/skills/fitodac-shadcn-integration"
 
 # Emil Kowalski design/motion skills.
 install_external_skill "emilkowalski/skills" "animation-vocabulary"
@@ -53,4 +41,4 @@ install_external_skill "supabase/agent-skills" "supabase"
 install_external_skill "supabase/agent-skills" "supabase-postgres-best-practices"
 
 echo
-echo "Done. Local skills were synced to ${PORTABLE_SKILLS_DIR}; external skills were installed globally for Codex and OpenCode."
+echo "Done. Curated external skills were installed globally for Codex and OpenCode."
