@@ -26,6 +26,13 @@ install_external_skill "emilkowalski/skills" "improve-animations"
 install_external_skill "emilkowalski/skills" "pick-ui-library"
 install_external_skill "emilkowalski/skills" "review-animations"
 
+# MengTo reference-to-prompt/frontend recreation workflow.
+install_external_skill "https://github.com/MengTo/Skills/tree/main/agent-skills/codex/video-to-superprompt"
+install_external_skill "https://github.com/MengTo/Skills/tree/main/agent-skills/ui/design-first-ui-prompting"
+install_external_skill "https://github.com/MengTo/Skills/tree/main/agent-skills/web-design/tailwindcss"
+install_external_skill "https://github.com/MengTo/Skills/tree/main/agent-skills/codex/html-to-interaction-prompts"
+install_external_skill "https://github.com/MengTo/Skills/tree/main/agent-skills/codex/stitched-full-page-capture"
+
 # Frontend/design tooling.
 install_external_skill "https://github.com/openai/skills/tree/main/skills/.curated/figma"
 install_external_skill "https://github.com/pbakaus/impeccable/tree/main/.agents/skills/impeccable"
