@@ -4,14 +4,14 @@ A curated collection of reusable AI agent skills for development, frontend workf
 
 ## Purpose
 
-This repository is the source of truth for the skills I actively use.
+This repository is the catalog and installation entry point for the skills I actively use.
 
-- `skills/` contains skills owned or customized here.
-- `SOURCES.md` tracks external skills and their canonical upstream repositories.
+- `SOURCES.md` tracks every curated skill and its canonical upstream repository.
 - `scripts/install-global.sh` installs the curated set globally for compatible agents.
-- `scripts/update-global.sh` refreshes external skills from upstream.
+- `scripts/update-global.sh` refreshes the curated set from upstream.
+- `skills/` is reserved for skills whose canonical source is this repository or for explicitly documented forks.
 
-External skills are not forked here unless they need local modifications. This keeps upstream updates simple and prevents this repository from becoming a collection of stale copies.
+External skills are not copied here merely because I use them. They remain maintained in their natural upstream repositories. For example, `admin-interface-design` and `fitodac-shadcn-integration` are maintained in `next-multipurpose/fitodac-shadcn` and installed from there.
 
 ## Global skill location
 
@@ -31,4 +31,4 @@ bash scripts/install-global.sh
 bash scripts/update-global.sh
 ```
 
-The update script deliberately re-installs each tracked external skill from its canonical source rather than relying on a generic bulk updater. This keeps each skill tied to the intended upstream repository and skill name.
+The update script deliberately re-installs each tracked external skill from its canonical source rather than maintaining copied snapshots in this repository.
