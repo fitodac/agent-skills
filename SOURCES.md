@@ -28,6 +28,15 @@ This file tracks the canonical source for every skill in the curated local set.
 | `tailwindcss` | `MengTo/Skills` → `agent-skills/web-design/tailwindcss` |
 | `video-to-superprompt` | `MengTo/Skills` → `agent-skills/codex/video-to-superprompt` |
 
+## Tooling dependencies
+
+These are CLI/runtime dependencies used by curated workflows rather than portable agent skills:
+
+| Tool | Canonical upstream | Purpose |
+| --- | --- | --- |
+| `skillui` | `kachamo/SkillUI` / npm package `skillui` | Reverse-engineer live websites into `DESIGN.md`, `SKILL.md`, screenshots, tokens, fonts, layout, interactions, and animation references. |
+| `playwright` | `microsoft/playwright` / npm package `playwright` | Browser runtime used by SkillUI ultra mode. The installer also downloads Chromium. |
+
 ## Reference-to-prompt workflow
 
 The MengTo skills above are intentionally curated for a MotionSites-like workflow:
@@ -38,7 +47,7 @@ The MengTo skills above are intentionally curated for a MotionSites-like workflo
 4. use that prompt to recreate the design in HTML/Tailwind, React, Astro, or another compatible frontend stack;
 5. prefer semantic layout rules and established framework utilities over literal pixel-for-pixel screenshot measurements.
 
-`video-to-superprompt` is currently the closest upstream skill to the desired superprompt output. There is not yet a dedicated static-image-to-superprompt skill in this repository; if the workflow proves useful, that should become a local skill rather than modifying MengTo's upstream skill.
+When a live URL is available, SkillUI ultra mode plus Playwright provides the automated extraction layer before the coding agent implementation step.
 
 ## Policy
 
@@ -46,4 +55,5 @@ The MengTo skills above are intentionally curated for a MotionSites-like workflo
 - `admin-interface-design` and `fitodac-shadcn-integration` are maintained in `next-multipurpose/fitodac-shadcn`, not in this repository.
 - A skill is copied into `skills/` only when this repository becomes its canonical source or when an intentional fork is documented here.
 - If an external skill needs local changes, fork it into `skills/<name>/` and document the divergence here before editing it.
+- CLI/runtime tooling required by curated workflows is installed by `scripts/install-global.sh` and documented separately from portable skills.
 - OMX is intentionally excluded because it is a Codex-specific runtime and manages its own skills/configuration.
