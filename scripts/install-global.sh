@@ -14,6 +14,12 @@ install_external_skill() {
   fi
 }
 
+install_global_frontend_tools() {
+  echo "[tooling] SkillUI + Playwright"
+  npm install -g skillui playwright
+  playwright install chromium
+}
+
 # Fitodac-maintained skills.
 install_external_skill "https://github.com/next-multipurpose/fitodac-shadcn/tree/main/.agents/skills/admin-interface-design"
 install_external_skill "https://github.com/next-multipurpose/fitodac-shadcn/tree/main/.agents/skills/fitodac-shadcn-integration"
@@ -38,6 +44,7 @@ install_external_skill "https://github.com/openai/skills/tree/main/skills/.curat
 install_external_skill "https://github.com/pbakaus/impeccable/tree/main/.agents/skills/impeccable"
 install_external_skill "https://github.com/microsoft/playwright-cli/tree/main/skills/playwright-cli"
 install_external_skill "https://github.com/shadcn-ui/ui/tree/main/skills/shadcn"
+install_global_frontend_tools
 
 # Skill and documentation discovery.
 install_external_skill "https://github.com/upstash/context7/tree/master/skills/find-docs"
@@ -48,4 +55,4 @@ install_external_skill "supabase/agent-skills" "supabase"
 install_external_skill "supabase/agent-skills" "supabase-postgres-best-practices"
 
 echo
-echo "Done. Curated external skills were installed globally for Codex and OpenCode."
+echo "Done. Curated external skills and frontend tooling were installed globally for Codex and OpenCode."
