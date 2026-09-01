@@ -7,7 +7,7 @@ A curated collection of reusable AI agent skills for development, frontend workf
 This repository is the catalog and installation entry point for the skills I actively use.
 
 - `SOURCES.md` tracks every curated skill and its canonical upstream repository.
-- `scripts/install-global.sh` installs the curated set globally for compatible agents.
+- `scripts/install-global.sh` installs the curated set globally for compatible agents and installs the global frontend tooling required by selected workflows.
 - `scripts/update-global.sh` refreshes the curated set from upstream.
 - `skills/` is reserved for skills whose canonical source is this repository or for explicitly documented forks.
 
@@ -22,6 +22,8 @@ git clone https://github.com/fitodac/agent-skills.git
 cd agent-skills
 bash scripts/install-global.sh
 ```
+
+The installer also installs `skillui` and `playwright` globally, then downloads Playwright's Chromium browser so SkillUI `--mode ultra` works without additional setup.
 
 ### Update all curated skills
 
@@ -63,25 +65,25 @@ The curated MengTo skills for this workflow are:
 - `html-to-interaction-prompts` — extracts reusable interaction and motion specifications when HTML or a live implementation is available.
 - `stitched-full-page-capture` — creates reliable full-page visual evidence from lazy-loaded or scroll-animated sites.
 
-These complement Impeccable, Emil Kowalski's design/motion skills, Figma, Playwright, and shadcn.
+These complement Impeccable, Emil Kowalski's design/motion skills, Figma, Playwright, SkillUI, and shadcn.
+
+SkillUI adds an automated reverse-engineering path for live websites. With Playwright available, its ultra mode can extract screenshots, interactions, animations, layout information, tokens, fonts, `DESIGN.md`, and `SKILL.md` into a portable reference folder for Codex or another coding agent.
 
 The target workflow is:
 
 ```text
-visual reference
+live site / visual reference
       ↓
-visual / layout interpretation
+SkillUI ultra + Playwright
       ↓
-assets + motion + interaction analysis
+DESIGN.md + SKILL.md + screenshots + tokens
       ↓
-detailed portable PROMPT.md
-      ↓
-HTML / React / Astro implementation
+Codex implementation
       ↓
 visual QA and refinement
 ```
 
-`video-to-superprompt` is currently the closest upstream skill to the desired output. A dedicated static `image-to-superprompt` skill may be added here later after this workflow is tested in real projects.
+`video-to-superprompt` remains useful for motion/video references, while SkillUI is the preferred automated path when a live website URL is available.
 
 ## Global skill location
 
