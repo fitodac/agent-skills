@@ -15,8 +15,8 @@ install_external_skill() {
 }
 
 install_global_frontend_tools() {
-  echo "[tooling] SkillUI + Playwright"
-  npm install -g skillui playwright
+  echo "Installing Playwright..."
+  npm install -g playwright
   playwright install chromium
 }
 
