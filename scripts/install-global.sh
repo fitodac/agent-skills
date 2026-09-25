@@ -45,7 +45,7 @@ install_external_skill "https://github.com/pbakaus/impeccable/tree/main/.agents/
 install_external_skill "https://github.com/microsoft/playwright-cli/tree/main/skills/playwright-cli"
 install_external_skill "https://github.com/shadcn-ui/ui/tree/main/skills/shadcn"
 install_external_skill "vercel-labs/agent-skills" "vercel-react-best-practices"
-install_external_skill "jellydn/my-ai-tools" "documentation-writer"
+install_external_skill "jellydn/my-ai-tools" "docs-update"
 install_global_frontend_tools
 
 # Skill and documentation discovery.
