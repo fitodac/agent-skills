@@ -6,6 +6,12 @@ This file tracks the canonical source for every skill in the curated local set.
 
 | Skill | Canonical upstream |
 | --- | --- |
+| `web-quality-audit` | `addyosmani/web-quality-skills` → `skills/web-quality-audit` |
+| `performance` | `addyosmani/web-quality-skills` → `skills/performance` |
+| `core-web-vitals` | `addyosmani/web-quality-skills` → `skills/core-web-vitals` |
+| `accessibility` | `addyosmani/web-quality-skills` → `skills/accessibility` |
+| `seo` | `addyosmani/web-quality-skills` → `skills/seo` |
+| `best-practices` | `addyosmani/web-quality-skills` → `skills/best-practices` |
 | `admin-interface-design` | `next-multipurpose/fitodac-shadcn` → `.agents/skills/admin-interface-design` |
 | `animation-vocabulary` | `emilkowalski/skills` → `skills/animation-vocabulary` |
 | `design-first-ui-prompting` | `MengTo/Skills` → `agent-skills/ui/design-first-ui-prompting` |
@@ -28,6 +34,12 @@ This file tracks the canonical source for every skill in the curated local set.
 | `tailwindcss` | `MengTo/Skills` → `agent-skills/web-design/tailwindcss` |
 | `video-to-superprompt` | `MengTo/Skills` → `agent-skills/codex/video-to-superprompt` |
 
+## Local (canonical source: this repository)
+
+| Skill | Location | Purpose |
+| --- | --- | --- |
+| `website-strategy-audit` | `skills/website-strategy-audit` | Playwright-powered website discovery and autonomous business/UX/marketing/CRO audit, complementing the upstream six quality skills. |
+
 ## Tooling dependencies
 
 These are CLI/runtime dependencies used by curated workflows rather than portable agent skills:
@@ -35,6 +47,7 @@ These are CLI/runtime dependencies used by curated workflows rather than portabl
 | Tool | Canonical upstream | Purpose |
 | --- | --- | --- |
 | `skillui` | `kachamo/SkillUI` / npm package `skillui` | Reverse-engineer live websites into `DESIGN.md`, `SKILL.md`, screenshots, tokens, fonts, layout, interactions, and animation references. |
+| `lighthouse` | `GoogleChrome/lighthouse` / npm package `lighthouse` | Lab performance, accessibility, best-practices and SEO scores for representative public pages. |
 | `playwright` | `microsoft/playwright` / npm package `playwright` | Browser runtime used by SkillUI ultra mode. The installer also downloads Chromium. |
 
 ## Reference-to-prompt workflow

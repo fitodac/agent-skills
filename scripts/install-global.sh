@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 install_external_skill() {
   local source="$1"
   local name="${2:-}"
@@ -14,9 +16,17 @@ install_external_skill() {
   fi
 }
 
+install_local_skill() {
+  local name="$1"
+  local skill_dir="${ROOT_DIR}/skills/${name}"
+  test -f "${skill_dir}/SKILL.md" || { echo "Missing local skill: ${skill_dir}" >&2; return 1; }
+  echo "[local] ${name}"
+  npx -y skills add "${skill_dir}" -g -a codex -a opencode --copy -y
+}
+
 install_global_frontend_tools() {
   echo "Installing Playwright..."
-  npm install -g playwright
+  npm install -g playwright lighthouse
   playwright install chromium
 }
 
@@ -48,6 +58,14 @@ install_external_skill "vercel-labs/agent-skills" "vercel-react-best-practices"
 install_external_skill "jellydn/my-ai-tools" "docs-update"
 install_global_frontend_tools
 
+# Upstream technical web quality auditing: always install all six skills.
+for skill in web-quality-audit performance core-web-vitals accessibility seo best-practices; do
+  install_external_skill "addyosmani/web-quality-skills" "$skill"
+done
+
+# Locally maintained business/marketing/UX extension.
+install_local_skill "website-strategy-audit"
+
 # Skill and documentation discovery.
 install_external_skill "https://github.com/upstash/context7/tree/master/skills/find-docs"
 install_external_skill "https://github.com/vercel-labs/skills/tree/main/skills/find-skills"
@@ -57,4 +75,4 @@ install_external_skill "supabase/agent-skills" "supabase"
 install_external_skill "supabase/agent-skills" "supabase-postgres-best-practices"
 
 echo
-echo "Done. Curated external skills and frontend tooling were installed globally for Codex and OpenCode."
+echo "Done. Curated external and local skills plus browser and Lighthouse tooling were installed globally for Codex and OpenCode."

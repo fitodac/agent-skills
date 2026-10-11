@@ -23,7 +23,7 @@ cd agent-skills
 bash scripts/install-global.sh
 ```
 
-The installer also installs `skillui` and `playwright` globally, then downloads Playwright's Chromium browser so SkillUI `--mode ultra` works without additional setup.
+The installer installs `playwright`, `lighthouse`, and Chromium globally, plus Addy Osmani's six Web Quality Skills and the locally maintained `website-strategy-audit` skill. No manual browser, screenshot, or audit-tool setup is required after installation.
 
 ### Update all curated skills
 
@@ -32,6 +32,14 @@ cd agent-skills
 git pull
 bash scripts/update-global.sh
 ```
+
+### Autonomous website strategy audit
+
+After pulling and running the updater, ask Codex or OpenCode:
+
+> Use website-strategy-audit to analyze https://example.com and deliver the business, marketing, SEO, UX/mobile, conversion and navigation audit.
+
+The skill automatically runs a bounded public-site crawl with Playwright, captures representative desktop/mobile screenshots, runs Lighthouse lab checks and produces a report, page inventory and AS-IS / TO-BE Mermaid navigation graphs. The agent reviews the evidence, applies upstream Web Quality Skills and finishes the strategic report without further user inputs. No account login or paid key is needed.
 
 ### See which skills are managed
 
