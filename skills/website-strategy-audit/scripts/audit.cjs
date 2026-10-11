@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { URL } = require('node:url');
+const { createHash } = require('node:crypto');
 const { chromium } = require('playwright');
 
 const start = process.argv[2];
@@ -65,7 +66,7 @@ const priority = url => {
   return ranked.indexOf(type) * 10 + Math.min(new URL(url).pathname.split('/').length, 12);
 };
 const md = x => String(x ?? '').replace(/[|\r\n]+/g,' ').slice(0,180);
-const graphId = x => 'N' + Buffer.from(x).toString('hex').slice(0, 18);
+const graphId = x => 'N' + createHash('sha1').update(x).digest('hex').slice(0, 12);
 function write(f, data) { fs.writeFileSync(path.join(output,f),data); }
 function tableCell(x) { return md(x).replace(/`/g,"'"); }
 async function main() {
@@ -111,7 +112,7 @@ async function main() {
     for(const m of xml.matchAll(/<loc(?:\s[^>]*)?>([\s\S]*?)<\/loc>/gi)) {
       const val=xmlDecode(m[1].trim());
       if(/\.xml(?:\.gz)?(?:\?|$)/i.test(val)) { if(sitemapQueue.length<maxSitemapFiles) sitemapQueue.push(val); }
-      else { const u=add(val); if(u) sitemapUrls.push(u); }
+      else { if(sitemapUrls.length < 70) { const u=add(val); if(u) sitemapUrls.push(u); } }
     }
   }
   let count=0;
