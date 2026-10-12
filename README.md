@@ -23,7 +23,7 @@ cd agent-skills
 bash scripts/install-global.sh
 ```
 
-The installer installs `playwright`, `lighthouse`, and Chromium globally, plus Addy Osmani's six Web Quality Skills and the locally maintained `website-strategy-audit` skill. No manual browser, screenshot, or audit-tool setup is required after installation.
+The installer installs `playwright`, `lighthouse`, and Chromium globally, plus Addy Osmani's six Web Quality Skills and the locally maintained `website-strategy-audit` and `website-client-report` skills. No manual browser, screenshot, or audit-tool setup is required after installation.
 
 ### Update all curated skills
 
@@ -40,6 +40,14 @@ After pulling and running the updater, ask Codex or OpenCode:
 > Use website-strategy-audit to analyze https://example.com and deliver the business, marketing, SEO, UX/mobile, conversion and navigation audit.
 
 The skill automatically runs a bounded public-site crawl with Playwright, captures representative desktop/mobile screenshots, runs Lighthouse lab checks and produces a report, page inventory and AS-IS / TO-BE Mermaid navigation graphs. The agent reviews the evidence, applies upstream Web Quality Skills and finishes the strategic report without further user inputs. No account login or paid key is needed.
+
+### Client-ready preliminary website report
+
+After producing or obtaining an evidence-based audit, ask Codex or OpenCode:
+
+> Use website-client-report with my website-strategy-audit findings to create a preliminary client-facing redesign assessment. Preserve the client's CMS and current content; do not assume content migration. Explain strengths, opportunities, current and proposed navigation, the relevant redesign work, and next steps before a separate quote.
+
+The skill transforms existing audit evidence into a concise nontechnical report with AS-IS / TO-BE navigation where supported. It respects explicit scope constraints and separates the complimentary diagnosis from technical implementation and pricing.
 
 ### See which skills are managed
 
