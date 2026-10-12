@@ -39,6 +39,7 @@ This file tracks the canonical source for every skill in the curated local set.
 | Skill | Location | Purpose |
 | --- | --- | --- |
 | `website-strategy-audit` | `skills/website-strategy-audit` | Playwright-powered website discovery and autonomous business/UX/marketing/CRO audit, complementing the upstream six quality skills. |
+| `website-client-report` | `skills/website-client-report` | Evidence-based preliminary client-facing redesign report that respects the agreed CMS and scope, with AS-IS/TO-BE diagrams and clear next steps. |
 
 ## Tooling dependencies
 
