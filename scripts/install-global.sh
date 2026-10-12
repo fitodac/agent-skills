@@ -63,8 +63,9 @@ for skill in web-quality-audit performance core-web-vitals accessibility seo bes
   install_external_skill "addyosmani/web-quality-skills" "$skill"
 done
 
-# Locally maintained business/marketing/UX extension.
+# Locally maintained website audit and client-facing reporting skills.
 install_local_skill "website-strategy-audit"
+install_local_skill "website-client-report"
 
 # Skill and documentation discovery.
 install_external_skill "https://github.com/upstash/context7/tree/master/skills/find-docs"
